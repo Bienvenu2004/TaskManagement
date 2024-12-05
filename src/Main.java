@@ -80,7 +80,7 @@ public class Main {
                     System.out.print("id : ");
                     id = scanner.nextInt();
 
-                    taskManager.showTasks(id);
+                    taskManager.showTask(id);
                     break;
 
                 case 5:
@@ -89,11 +89,12 @@ public class Main {
                     break;
 
                 default:
-                    System.out.println("Choisir une option valide");
+                    System.out.println("Option invalid");
+                    System.out.println("Choisir une option valide S'il vous plait");
                     break;
             }
 
-            System.out.print("Exit ? y/n ");
+        scanner.close();
 
     }
 }

@@ -22,7 +22,7 @@ public class TaskManager {
         System.out.println("task added");
     }
 
-    public void showTasks(int id) throws SQLException {
+    public void showTask(int id) throws SQLException {
         String sql = "SELECT * FROM taches where id = ?";
         PreparedStatement stmt = conn.prepareStatement(sql);
         stmt.setInt(1, id);

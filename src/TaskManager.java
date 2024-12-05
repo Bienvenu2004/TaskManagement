@@ -11,12 +11,11 @@ public class TaskManager {
 
     public void addTask(Task task) throws SQLException {
 
-        String sql = "INSERT INTO taches(id,titre,description,priorite) VALUES(?,?,?,?)";
+        String sql = "INSERT INTO taches(titre,description,priorite) VALUES(?,?,?)";
         PreparedStatement stmt = conn.prepareStatement(sql);
-        stmt.setInt(1, task.getId());
-        stmt.setString(2, task.getTitre());
-        stmt.setString(3, task.getDescription());
-        stmt.setInt(4, task.getPriorite());
+        stmt.setString(1, task.getTitre());
+        stmt.setString(2, task.getDescription());
+        stmt.setInt(3, task.getPriorite());
         ResultSet rs = stmt.executeQuery();
 
 
@@ -43,7 +42,7 @@ public class TaskManager {
         PreparedStatement stmt = conn.prepareStatement(sql);
         ResultSet rs = stmt.executeQuery();
         while (rs.next()) {
-            System.out.println("task titre: " + rs.getString("titre") + " description: " + rs.getString("description"));
+            System.out.println("task titre: " + rs.getString("titre") + " description: " + rs.getString("description") + " priorite: " + rs.getString("priorite"));
         }
     }
 

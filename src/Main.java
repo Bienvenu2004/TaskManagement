@@ -8,89 +8,92 @@ public class Main {
     public static void main(String[] args) throws SQLException {
         TaskManager taskManager = new TaskManager();
 
-        //menu
-        System.out.println("------ Systeme de Gestion de taches --------");
-        System.out.println("1: creer une tache");
-        System.out.println("2: Supprimer une tache");
-        System.out.println("3: Mettre ajour une tache");
-        System.out.println("4: Visualiser une tache");
-        System.out.println("5: Visualiser toutes les taches");
+        String exit = "n";
 
-        Scanner scanner = new Scanner(System.in);
+            //menu
+            System.out.println("------ Systeme de Gestion de taches --------");
+            System.out.println("1: creer une tache");
+            System.out.println("2: Supprimer une tache");
+            System.out.println("3: Mettre ajour une tache");
+            System.out.println("4: Visualiser une tache");
+            System.out.println("5: Visualiser toutes les taches");
 
-      System.out.print("Entrer option : ");
-      int option = scanner.nextInt();
-      scanner.nextLine();
+            Scanner scanner = new Scanner(System.in);
 
-      int id = 0;
-      String description = "";
-      String titre = "";
-      int priorite = 0;
+            System.out.print("Entrer option : ");
+            int option = scanner.nextInt();
+            scanner.nextLine();
 
-      switch (option) {
-          case 1:
-              System.out.println("--------- Ajouter une tache --------");
+            int id = 0;
+            String description = "";
+            String titre = "";
+            int priorite = 0;
 
-              System.out.print("Titre : ");
-              titre = scanner.nextLine();
+            switch (option) {
+                case 1:
+                    System.out.println("--------- Ajouter une tache --------");
 
-              System.out.print("description : ");
-              description = scanner.nextLine();
+                    System.out.print("Titre : ");
+                    titre = scanner.nextLine();
 
-              System.out.print("Priorite : ");
-              priorite = scanner.nextInt();
-              System.out.println(priorite);
+                    System.out.print("description : ");
+                    description = scanner.nextLine();
 
-              Task task = new Task();
-              task.setTitre(titre);
-              task.setDescription(description);
-              task.setPriorite((int) priorite);
-              taskManager.addTask(task);
-              break;
+                    System.out.print("Priorite : ");
+                    priorite = scanner.nextInt();
 
-          case 2:
-              System.out.println("--------- Supprimer une tache ---------");
-              System.out.print("id : ");
-              id = scanner.nextInt();
+                    Task task = new Task();
+                    task.setTitre(titre);
+                    task.setDescription(description);
+                    task.setPriorite((int) priorite);
+                    taskManager.addTask(task);
+                    break;
 
-              taskManager.deleteTask(id);
-              break;
+                case 2:
+                    System.out.println("--------- Supprimer une tache ---------");
+                    System.out.print("id : ");
+                    id = scanner.nextInt();
 
-          case 3:
-              System.out.println("--------- Mettre ajour une tache ---------");
-              System.out.println("id : ");
-              id = scanner.nextInt();
+                    taskManager.deleteTask(id);
+                    break;
 
-              System.out.print("title : ");
-              titre = scanner.nextLine();
+                case 3:
+                    System.out.println("--------- Mettre ajour une tache ---------");
+                    System.out.print("id : ");
+                    id = scanner.nextInt();
 
-              System.out.print("description : ");
-              description = scanner.nextLine();
+                    scanner.nextLine();
+                    System.out.print("title : ");
+                    titre = scanner.nextLine();
 
-              System.out.print("priorite : ");
-              priorite = scanner.nextInt();
+                    System.out.print("description : ");
+                    description = scanner.nextLine();
 
-              taskManager.updateTask(id, titre, description, priorite);
-              break;
+                    System.out.print("priorite : ");
+                    priorite = scanner.nextInt();
 
-          case 4:
-              System.out.println("--------- Visualiser une tache ---------");
-              System.out.print("id : ");
-              id = scanner.nextInt();
+                    taskManager.updateTask(id, titre, description, priorite);
+                    break;
 
-              taskManager.showTasks(id);
-              break;
+                case 4:
+                    System.out.println("--------- Visualiser une tache ---------");
+                    System.out.print("id : ");
+                    id = scanner.nextInt();
 
-          case 5:
-              System.out.println("--------- Visualiser toutes les taches ---------");
-              taskManager.showAllTasks();
-              break;
+                    taskManager.showTasks(id);
+                    break;
 
-          default:
-              System.out.println("Choisir une option valide");
-              break;
-      }
+                case 5:
+                    System.out.println("--------- Visualiser toutes les taches ---------");
+                    taskManager.showAllTasks();
+                    break;
 
+                default:
+                    System.out.println("Choisir une option valide");
+                    break;
+            }
+
+            System.out.print("Exit ? y/n ");
 
     }
 }

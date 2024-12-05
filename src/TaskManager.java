@@ -47,6 +47,13 @@ public class TaskManager {
         }
     }
 
-
+public void updateTask(int id, String titre, String description, int priorite) throws SQLException {
+        String sql = "UPDATE taches SET titre = ?, description = ? WHERE id = ?";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setString(1, titre);
+        stmt.setString(2, description);
+        stmt.setInt(3, id);
+        stmt.executeQuery();
+}
 
 }

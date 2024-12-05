@@ -1,0 +1,14 @@
+version: '1'
+
+services:
+
+  starter-db:
+    image: 'postgres:13.1-alpine'
+    container_name: task-db
+    restart: always
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=task
+    ports:
+      - '5432:5432'
